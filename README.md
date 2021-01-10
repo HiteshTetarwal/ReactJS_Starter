@@ -11,13 +11,32 @@ Create React App works on macOS, Windows, and Linux.<br>
 If something doesn’t work, please [file an issue](https://github.com/facebook/create-react-app/issues/new).<br>
 If you have questions or need help, please ask in [GitHub Discussions](https://github.com/facebook/create-react-app/discussions).
 
+## Pre-Configuration
+You will need below tools to start to run the project:
+1. [Node](https://nodejs.org/en/download/)
+2. Any code editor
+
 ## Quick Overview
 
-```sh
-npx create-react-app my-app
-cd my-app
-npm start
-```
+Run below command on terminal to use react command utility(open with admin on windows)
+
+    ```sh
+	npm -g i create-react-app (-g for globally)
+    ```
+    
+  or (for other than windows)
+    
+    ```sh
+	sudo npm -g i create-react-app (-g for globally)
+    ```
+    
+Go to the folder where you want to create a react app and then run below commands
+
+    ```sh
+    npx create-react-app my-app
+    cd my-app
+    npm start
+    ```
 
 If you've previously installed `create-react-app` globally via `npm install -g create-react-app`, we recommend you uninstall the package using `npm uninstall -g create-react-app` or `yarn global remove create-react-app` to ensure that npx always uses the latest version.
 
