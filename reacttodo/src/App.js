@@ -31,6 +31,16 @@ class App extends React.Component{
     }
   }
 
+  deleteItem(id){
+    const list = [...this.state.list];
+    const updatedlist = list.filter(item => item.id !== id);
+    this.setState({list: updatedlist})
+  }
+
+  updateInput(input){
+    this.setState({newItem: input});
+  }
+
   render(){
     return(
       <div>
@@ -39,10 +49,32 @@ class App extends React.Component{
         <div className="container">
           Add an Item....
           <br/>
-          <input type="text" className="input-text" placeholder="Write a ToDo"></input>
-          <button className="add-btn">Add Button</button>
+          <input 
+          type="text" 
+          className="input-text" 
+          placeholder="Write a ToDo" 
+          required
+          value={this.state.newItem}
+          onChange={e => this.updateInput(e.target.value)}></input>
+          <button 
+          className="add-btn"
+          onClick={() => this.addItem(this.state.newItem)}
+          disabled = {!this.state.newItem.length}>Add Button</button>
           <div className="list">
             <ul>
+            {this.state.list.map(item => {
+              return(<li key={item.id}>
+                <input
+                type="checkbox" 
+                name="isDone" 
+                checked={item.isDone} 
+                onChange={() => {}}/>
+                {item.value}
+                <button
+                className="btn"
+                onClick={() => this.deleteItem(item.id)}>Delete</button>
+                </li>);
+            })}
               <li>
                 <input type="checkbox" name="" id=""/>
                 Record youtube videos
